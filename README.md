@@ -1,5 +1,5 @@
-# **geoip-shell**
-User-friendly and powerful geoblocker for Linux. Supports both **nftables** and **iptables** firewall management utilities.
+# **geoip-shell-nix**
+User-friendly and powerful geoblocker for Linux. Supports **NixOS** with both **nftables** and **iptables** firewall management utilities.
 
 The idea of this project is making geoblocking (i.e. restricting access from or to Internet addresses based on geolocation) easy on (almost) any Linux system, no matter which hardware, including desktop, server, container, VPS or router, while also being reliable and providing flexible configuration options for the advanced users.
 
@@ -127,13 +127,13 @@ _(Note that some commands require root privileges, so you will likely need to ru
 ## **Initial setup**
 Once the installation completes, the installer will suggest to automatically start the interactive setup. If you ran the install script non-interactively or interrupted the setup at some point, you can manually (re)start interactive setup by running `geoip-shell configure`.
 
-Interactive setup gathers the important config via dialog with the user and does not require any command line arguments. If you are not sure how to answer some of the questions, read [SETUP.md](/Documentation/SETUP.md).
+Interactive setup gathers the important config via dialog with the user and does not require any command line arguments. If you are not sure how to answer some of the questions, read [SETUP](https://github.com/74k1/geoip-shell-nix/wiki/SETUP).
 
 Alternatively, some or all of the config options may be provided via command-line arguments.
 
 **NOTE:** Some features are only accessible via command-line arguments. In particular, by default, initial setup only configures inbound geoblocking and leaves outbound geoblocking in disabled state. If you want to configure outbound geoblocking, read the section [Outbound geoblocking](#outbound-geoblocking).
 
-_To find out more, run `geoip-shell -h` or read [NOTES.md](/Documentation/NOTES.md) and [DETAILS.md](/Documentation/DETAILS.md)_
+_To find out more, run `geoip-shell -h` or read [NOTES](https://github.com/74k1/geoip-shell-nix/wiki/NOTES) and [DETAILS](https://github.com/74k1/geoip-shell-nix/wiki/DETAILS)_
 
 ## **Usage**
 _(Note that all commands require root privileges, so you will likely need to run them with `sudo`)_
@@ -143,7 +143,7 @@ Generally, once the installation completes, you don't have to do anything else f
 By default, ip lists will be updated daily around 4:15am local time (to avoid everyone loading the servers at the same time, the default minute is randomized to +-5 precision at the time of initial setup and the seconds are randomized at the time of automatic update).
 
 If you want to change geoblocking config or check geoblocking status, you can do that via the provided utilities.
-A selection of options is given here, for additional options run `geoip-shell -h` or read [NOTES.md](/Documentation/NOTES.md) and [DETAILS.md](/Documentation/DETAILS.md).
+A selection of options is given here, for additional options run `geoip-shell -h` or read [NOTES](https://github.com/74k1/geoip-shell-nix/wiki/NOTES) and [DETAILS](https://github.com/74k1/geoip-shell-nix/wiki/DETAILS).
 
 **Note** that when using the `geoip-shell configure` command, if direction is not specified, direction-specific options apply to **inbound** geoblocking. Direction-specific options are `-m <whitelist|blacklist|disable>`, `-c <country_codes>`, `-p <ports>`. To specify direction, add `-D <inbound|outbound>` before specifying options for that direction (for more details, read the section [Outbound geoblocking](#outbound-geoblocking)).
 
@@ -168,7 +168,7 @@ _<details><summary>Example:</summary>_
 
 `geoip-shell configure -p <[tcp|udp]:[allow|block]:[all|<ports>]>`
 
-_(for detailed description of this feature, read [NOTES.md](/Documentation/NOTES.md), sections 10-12)_
+_(for detailed description of this feature, read [NOTES](https://github.com/74k1/geoip-shell-nix/wiki/NOTES), sections 10-12)_
 
 **To enable or disable geoblocking** (only adds or removes the geoblocking enable rules, leaving all other firewall geoblocking rules and ip sets in place):
 
@@ -265,10 +265,10 @@ To configure **inbound and outbound** geoblocking, whitelisting Germany and Ital
 **Optional**: the _check-ip-in-source.sh_ optional script requires **grepcidr**. install it with `apt install grepcidr` on Debian and derivatives. For other distros, use their built-in package manager.
 
 ## **Notes**
-For some helpful notes about using this suite, read [NOTES.md](/Documentation/NOTES.md).
+For some helpful notes about using this suite, read [NOTES](https://github.com/74k1/geoip-shell-nix/wiki/NOTES).
 
 ## **In detail**
-For specifics about each script, read [DETAILS.md](/Documentation/DETAILS.md).
+For specifics about each script, read [DETAILS](https://github.com/74k1/geoip-shell-nix/wiki/DETAILS).
 
 ## **OpenWrt**
 For information about OpenWrt support, read the [OpenWrt README](/OpenWrt/README.md).
